@@ -41,28 +41,11 @@ opkg install docker docker-compose dockerd \
             luci-app-dockerman
 ```
 ## (可选) 安装 openclash
-### 删除会影响安装的配置文件自己斟酌删还是不删，反正我是删，还是注释一下吧 ，免得一股脑全复制
-```
-# rm -rfv /etc/hotplug.d/ntp/25-dnsmasqsec
-# rm -rfv /etc/init.d/dnsmasq
-# rm -rfv /usr/lib/dnsmasq/dhcp-script.sh
-# rm -rfv /usr/sbin/dnsmasq
-# rm -rfv /usr/share/acl.d/dnsmasq_acl.json
-# rm -rfv /usr/share/dnsmasq/dhcpbogushostname.conf
-# rm -rfv /usr/share/dnsmasq/rfc6761.conf
-# rm -rfv /etc/config/dhcp
-# rm -rfv /etc/config/luci
-```
 ### 安装 openclash 依赖包
 ```
-opkg install libwolfssl coreutils-nohup bash \
-            iptables dnsmasq-full curl \
-            ca-certificates ipset ip-full \
-            iptables-mod-tproxy iptables-mod-extra libcap \
-            libcap-bin ruby ruby-yaml \
-            kmod-tun kmod-inet-diag luci \
-            luci-base coreutils jsonfilter \
-            luci-compat
+#nftables
+opkg update
+opkg install coreutils-nohup bash dnsmasq-full curl ca-certificates ipset ip-full libcap libcap-bin ruby ruby-yaml kmod-tun kmod-inet-diag unzip kmod-nft-tproxy luci-compat luci luci-base
 ```
 ### 下载ipk https://github.com/vernesong/OpenClash/releases
 ```
